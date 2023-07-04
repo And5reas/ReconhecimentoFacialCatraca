@@ -2,9 +2,9 @@ import cv2
 import numpy as np
 import face_recognition
 
-imgElon = face_recognition.load_image_file("Imagens\\Elon-Musk.jpg")
+imgElon = face_recognition.load_image_file("ImgsDataBase\\Elon-Musk.jpg")
 imgElon = cv2.cvtColor(imgElon, cv2.COLOR_BGR2RGB)
-imgElonTest = face_recognition.load_image_file("Imagens\\elon teste.jfif")
+imgElonTest = face_recognition.load_image_file("ImgsDataBase\\elon teste.jfif")
 imgElonTest = cv2.cvtColor(imgElonTest, cv2.COLOR_BGR2RGB)
 
 faceLoc = face_recognition.face_locations(imgElon)[0]
