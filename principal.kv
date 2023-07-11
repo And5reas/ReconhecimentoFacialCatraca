@@ -1,0 +1,86 @@
+<Label>:
+    font_size: "18pt"
+
+WindowManager:
+    Janela:
+        name: "MainMenu"
+    Cadastrar:
+        name: "CadastrarMenu"
+        
+
+<Janela>:
+    BoxLayout:
+        orientation: "horizontal"
+        
+        Button:
+            text: "Cadastrar"
+            on_press: root.StartCamera()
+            on_release: app.root.current = "CadastrarMenu"
+            
+        Button:
+            id: btn_start
+            text: "Start"
+            on_release: root.startReconhecimento()
+
+<Cadastrar>:
+    BoxLayout:
+        orientation: "vertical"
+        padding: 20
+        spacing: 20
+        
+        BoxLayout:
+            Image:
+                id: CVcamera
+        
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: (1, .4)
+
+            BoxLayout:
+                orientation: "vertical"
+
+                BoxLayout:
+                    orientation: "horizontal"
+                    
+                    Label:
+                        text: "Nome:"
+                        size_hint: (.2, None)
+                        height: 30
+                        pos_hint: {'top': 1}
+                        
+                    TextInput:
+                        id: txt_nomeCadastrar
+                        multiline: False
+                        do_wrap: False
+                        write_tab: False
+                        size_hint: (1, None)
+                        height: 30
+                        pos_hint: {'top': 1}
+                        on_text: self.background_color = (1, 1, 1, 1)
+
+                Label:
+                    id: lbl_retorno
+                    text: ""
+                    font_size: "16pt"
+
+                BoxLayout:
+                    orientation: "horizontal"
+                    
+                    Button:
+                        id: btn_cadastrar
+                        text: "Cadastrar Rosto"
+                        font_size: "20pt"
+                        pos_hint: {'center_x': 0.5}
+                        size_hint: (1, None)
+                        height: 50
+                        width: 200
+                        on_press: root.Cadastrar()
+
+                    Button:
+                        text: "Voltar"
+                        size_hint: (1, None)
+                        height: 50
+                        width: 200
+                        pos_hint: {'right': 0}
+                        on_press: root.LimparTudo()
+                        on_release: app.root.current = "MainMenu"
