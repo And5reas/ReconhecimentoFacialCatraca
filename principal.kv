@@ -14,8 +14,8 @@ WindowManager:
         
         Button:
             text: "Cadastrar"
-            on_press: root.StartCamera()
-            on_release: app.root.current = "CadastrarMenu"
+            on_press: app.root.current = "CadastrarMenu"
+            on_release: root.StartCamera()
             
         Button:
             id: btn_start
